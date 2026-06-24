@@ -1135,21 +1135,20 @@ ul { list-style: none; }
 
 .contact { background: linear-gradient(180deg, var(--bg), var(--surface) 50%, var(--bg)); }
 
-.contact__grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--s10);
-  align-items: start;
+.contact__content {
+  max-width: 600px;
+  margin-inline: auto;
+  text-align: center;
 }
 
-.contact__heading {
-  font-family: var(--head);
-  font-size: clamp(1.25rem, 2.8vw, 1.75rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  margin-bottom: var(--s4);
+.contact__cta {
+  font-size: 1rem;
+  padding: 0.75rem 2rem;
+  margin-block: var(--s6) var(--s10);
 }
+
+.contact-items { text-align: left; }
+
 .contact__text {
   color: var(--muted);
   line-height: 1.8;
@@ -1198,60 +1197,6 @@ ul { list-style: none; }
 .contact-item__label  { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 2px; }
 .contact-item__value  { font-size: 0.84rem; font-weight: 500; color: var(--text); }
 
-/* Form */
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--s5);
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--r-xl);
-  padding: var(--s8);
-}
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--s5);
-}
-.form-group { display: flex; flex-direction: column; gap: var(--s2); }
-.form-label {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--text);
-  letter-spacing: 0.02em;
-}
-.form-input {
-  padding: 0.65rem var(--s4);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--r-md);
-  color: var(--text);
-  font-family: var(--body);
-  font-size: 0.88rem;
-  transition: border-color var(--t-fast), box-shadow var(--t-fast);
-  outline: none;
-}
-.form-input::placeholder { color: var(--subtle); }
-.form-input:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(124,110,247,0.12);
-}
-.form-input.error { border-color: #ef4444; box-shadow: 0 0 0 3px rgba(239,68,68,0.1); }
-.form-textarea { resize: vertical; min-height: 130px; }
-.form-error  { font-size: 0.76rem; color: #ef4444; min-height: 1em; }
-.form-success {
-  display: flex;
-  align-items: center;
-  gap: var(--s2);
-  justify-content: center;
-  color: #22c55e;
-  font-size: 0.86rem;
-  font-weight: 500;
-  padding: var(--s3);
-  background: rgba(34,197,94,0.07);
-  border: 1px solid rgba(34,197,94,0.18);
-  border-radius: var(--r-md);
-}
 
 /* ═══════════════════════════════════════════════════════════
    FOOTER
@@ -1354,8 +1299,6 @@ ul { list-style: none; }
   .about__visual      { position: sticky; top: calc(var(--nav-h) + var(--s6)); }
   .skills__container  { grid-template-columns: 1fr 1px 1fr; }
   .skills__sep        { width: 1px; height: auto; background: var(--border); }
-  .contact__grid      { grid-template-columns: 1fr 1.4fr; gap: var(--s12); }
-  .form-row           { grid-template-columns: 1fr 1fr; }
   .footer__top        { flex-direction: row; justify-content: space-between; align-items: flex-start; }
   .footer__bottom     { flex-direction: row; justify-content: space-between; }
   .nav__cta           { display: inline-flex; }
@@ -1412,16 +1355,15 @@ ul { list-style: none; }
     position: fixed;
     inset: 0;
     top: var(--nav-h);
-    background: rgba(7,7,9,0.97);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
+    background: #070709;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: var(--s8);
     transform: translateX(100%);
     visibility: hidden;
-    transition: transform var(--t-slow), visibility var(--t-slow);
+    will-change: transform;
+    transition: transform 220ms ease, visibility 220ms ease;
     z-index: 999;
   }
   .nav__menu.open { transform: translateX(0); visibility: visible; }
@@ -1430,7 +1372,6 @@ ul { list-style: none; }
     font-weight: 600;
     color: var(--text);
   }
-  .contact__grid { grid-template-columns: 1fr; }
 }
 
 /* ═══════════════════════════════════════════════════════════
