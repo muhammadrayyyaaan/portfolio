@@ -956,9 +956,9 @@ ul { list-style: none; }
   border-radius: var(--r-sm);
 }
 
-/* Restaurant mockup screen */
+/* Locus Maldives mockup screen */
 .mockup--restaurant .mockup__screen {
-  background: linear-gradient(160deg, #1a0b05, #2d1610);
+  background: linear-gradient(160deg, #061614, #0b2a24);
   padding: var(--s5);
   min-height: 220px;
 }
@@ -968,7 +968,7 @@ ul { list-style: none; }
   align-items: center;
   padding-bottom: var(--s4);
   margin-bottom: var(--s4);
-  border-bottom: 1px solid rgba(245,208,122,0.12);
+  border-bottom: 1px solid rgba(79,209,197,0.14);
 }
 .mockup__hero-label {
   font-family: var(--head);
@@ -976,11 +976,11 @@ ul { list-style: none; }
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #f5d07a;
+  color: #4fd1c5;
 }
 .mockup__hero-sub {
   font-size: 0.58rem;
-  color: rgba(245,208,122,0.38);
+  color: rgba(79,209,197,0.4);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   margin-top: 2px;
@@ -993,24 +993,24 @@ ul { list-style: none; }
   padding: 8px var(--s3);
   background: rgba(255,255,255,0.04);
   border-radius: var(--r-sm);
-  border: 1px solid rgba(245,208,122,0.07);
+  border: 1px solid rgba(79,209,197,0.08);
 }
 .mockup__item-img {
   width: 34px; height: 34px;
   border-radius: var(--r-sm);
   flex-shrink: 0;
 }
-.mockup__item-img--1 { background: linear-gradient(135deg, #e85d04, #f48c06); }
-.mockup__item-img--2 { background: linear-gradient(135deg, #c1121f, #e63946); }
-.mockup__item-img--3 { background: linear-gradient(135deg, #2d6a4f, #52b788); }
+.mockup__item-img--1 { background: linear-gradient(135deg, #c1440e, #e76f51); }
+.mockup__item-img--2 { background: linear-gradient(135deg, #1b4332, #40916c); }
+.mockup__item-img--3 { background: linear-gradient(135deg, #7d4600, #d4791a); }
 .mockup__item-lines { flex:1; display:flex; flex-direction:column; gap:5px; }
 .mockup__item-lines div { height:4px; border-radius:3px; background:rgba(255,255,255,0.11); }
 .mockup__item-lines div:last-child { width:55%; }
-.mockup__item-price { width:28px; height:10px; border-radius:3px; background:rgba(245,208,122,0.28); flex-shrink:0; }
+.mockup__item-price { width:28px; height:10px; border-radius:3px; background:rgba(79,209,197,0.28); flex-shrink:0; }
 
-/* E-commerce mockup screen */
+/* APEX e-commerce mockup screen */
 .mockup--ecommerce .mockup__screen {
-  background: linear-gradient(160deg, #07101f, #0e1c35);
+  background: #080808;
   padding: var(--s3) var(--s4) var(--s4);
   min-height: 220px;
 }
@@ -1020,27 +1020,27 @@ ul { list-style: none; }
   gap: var(--s3);
   margin-bottom: var(--s4);
   padding-bottom: var(--s3);
-  border-bottom: 1px solid rgba(99,135,250,0.12);
-  color: rgba(99,135,250,0.45);
+  border-bottom: 1px solid rgba(198,246,60,0.12);
+  color: rgba(198,246,60,0.5);
 }
-.mockup__topbar-logo { width:38px; height:9px; border-radius:3px; background:rgba(99,135,250,0.32); }
+.mockup__topbar-logo { width:38px; height:9px; border-radius:3px; background:rgba(198,246,60,0.35); }
 .mockup__topbar-links { display:flex; gap:var(--s2); flex:1; }
-.mockup__topbar-links div { width:22px; height:5px; border-radius:3px; background:rgba(255,255,255,0.09); }
+.mockup__topbar-links div { width:22px; height:5px; border-radius:3px; background:rgba(255,255,255,0.08); }
 .mockup__product-grid { display:grid; grid-template-columns:1fr 1fr; gap:var(--s3); }
 .mockup__product {
-  background: rgba(255,255,255,0.025);
-  border: 1px solid rgba(99,135,250,0.07);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(198,246,60,0.08);
   border-radius: var(--r-sm);
   padding: var(--s2);
 }
 .mockup__product-img { width:100%; height:44px; border-radius:4px; margin-bottom:var(--s2); }
-.mockup__product-img--1 { background:linear-gradient(135deg,#1e3a5f,#4361ee); }
-.mockup__product-img--2 { background:linear-gradient(135deg,#2d1b6e,#7c3aed); }
-.mockup__product-img--3 { background:linear-gradient(135deg,#14532d,#16a34a); }
-.mockup__product-img--4 { background:linear-gradient(135deg,#7c2d12,#ea580c); }
-.mockup__product-name  { height:4px; border-radius:3px; background:rgba(255,255,255,0.11); margin-bottom:var(--s1); }
-.mockup__product-price { height:4px; width:48%; border-radius:3px; background:rgba(99,135,250,0.28); margin-bottom:var(--s2); }
-.mockup__product-btn   { height:13px; border-radius:3px; background:rgba(67,97,238,0.48); }
+.mockup__product-img--1 { background:linear-gradient(135deg,#0f0f0f,#1c1c1c); }
+.mockup__product-img--2 { background:linear-gradient(135deg,#0d1a00,#1c3300); }
+.mockup__product-img--3 { background:linear-gradient(135deg,#111111,#242424); }
+.mockup__product-img--4 { background:linear-gradient(135deg,#0a1500,#162b00); }
+.mockup__product-name  { height:4px; border-radius:3px; background:rgba(255,255,255,0.12); margin-bottom:var(--s1); }
+.mockup__product-price { height:4px; width:48%; border-radius:3px; background:rgba(198,246,60,0.3); margin-bottom:var(--s2); }
+.mockup__product-btn   { height:13px; border-radius:3px; background:rgba(198,246,60,0.65); }
 
 /* Project badge */
 .project-badge {
