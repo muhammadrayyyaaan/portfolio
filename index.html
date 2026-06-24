@@ -20,6 +20,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
+  <!-- Set theme before CSS renders to prevent flash of wrong theme -->
+  <script>
+    (function(){
+      var t=localStorage.getItem('portfolio-theme')||(matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');
+      document.documentElement.setAttribute('data-theme',t);
+    })();
+  </script>
 </head>
 <body>
 
@@ -41,6 +48,11 @@
       </ul>
 
       <a href="#contact" class="btn btn--primary btn--sm nav__cta">Hire Me</a>
+
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle colour theme" title="Toggle light/dark mode">
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
 
       <button class="nav__toggle" id="navToggle"
               aria-label="Toggle navigation menu"
@@ -181,7 +193,7 @@
                 </div>
                 <div class="profile-card__meta">
                   <h3 class="profile-card__name">Mohamed Rayyan</h3>
-                  <p class="profile-card__role">Full-Stack Developer</p>
+                  <p class="profile-card__role">CS Student &amp; ICT Technician</p>
                   <p class="status-pill">
                     <span class="pulse-dot pulse-dot--green" aria-hidden="true"></span>
                     <span>Open to Work</span>
@@ -191,16 +203,16 @@
 
               <dl class="profile-details">
                 <div class="profile-detail">
-                  <dt class="profile-detail__key">Focus</dt>
-                  <dd class="profile-detail__val">Web Development</dd>
+                  <dt class="profile-detail__key">Study</dt>
+                  <dd class="profile-detail__val">BSc (Hons) Computer Science</dd>
                 </div>
                 <div class="profile-detail">
-                  <dt class="profile-detail__key">Availability</dt>
-                  <dd class="profile-detail__val">Immediate</dd>
+                  <dt class="profile-detail__key">Location</dt>
+                  <dd class="profile-detail__val">Maldives</dd>
                 </div>
                 <div class="profile-detail">
-                  <dt class="profile-detail__key">Currently</dt>
-                  <dd class="profile-detail__val">Building with Node.js</dd>
+                  <dt class="profile-detail__key">Work</dt>
+                  <dd class="profile-detail__val">Ministry of Youth</dd>
                 </div>
                 <div class="profile-detail">
                   <dt class="profile-detail__key">Open to</dt>
@@ -221,38 +233,49 @@
           </div>
 
           <div class="about__content reveal">
-            <h3 class="about__heading">Turning ideas into <span class="gradient-text">digital reality</span></h3>
+            <h3 class="about__heading">Building for the web, <span class="gradient-text">learning every day</span></h3>
             <p class="about__text">
-              I'm Mohamed Rayyan, a full-stack developer focused on building clean, modern, and user-friendly web applications. I believe great software is as much about thoughtful design as it is about quality code.
+              I'm Mohamed Rayyan — a Computer Science student from the Maldives pursuing a BSc&nbsp;(Hons) in Computer Science. Alongside my studies, I work as an Assistant ICT Technician at the Ministry of Youth Empowerment, Sports and Fitness, so I'm working with real systems daily, not just reading about them.
             </p>
             <p class="about__text">
-              Actively growing my full-stack skills — from pixel-perfect frontends with HTML, CSS, and JavaScript, to building backends with Node.js and Express. Every project is an opportunity to level up.
+              My technical focus is modern web development. I build with HTML, CSS, JavaScript, and Python, and I'm actively exploring AI fundamentals and full-stack patterns. I've explored the basics of Laravel and Vue.js is next on my list.
             </p>
+
+            <div class="about__work-card">
+              <div class="about__work-icon" aria-hidden="true">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              </div>
+              <div class="about__work-info">
+                <p class="about__work-title">Assistant ICT Technician</p>
+                <p class="about__work-org">Ministry of Youth Empowerment, Sports &amp; Fitness &middot; Maldives</p>
+              </div>
+              <span class="about__work-badge">Current Role</span>
+            </div>
 
             <ul class="highlights" aria-label="Key facts">
               <li class="highlight-item">
                 <svg class="highlight-item__icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>Shipped a live client website — <a href="https://locusmaldives.com/" target="_blank" rel="noopener noreferrer" style="color:var(--teal)">locusmaldives.com</a> — serving real customers</span>
+                <span>Shipped <a href="https://locusmaldives.com/" target="_blank" rel="noopener noreferrer" style="color:var(--teal)">locusmaldives.com</a> — a real client site serving live customers</span>
               </li>
               <li class="highlight-item">
                 <svg class="highlight-item__icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>Built full e-commerce UI with cart, product pages, and checkout flow</span>
+                <span>Studying CS full-time while working in ICT — theory applied every day</span>
               </li>
               <li class="highlight-item">
                 <svg class="highlight-item__icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>Actively learning Node.js, Express, and backend development</span>
+                <span>Exploring AI fundamentals alongside full-stack development patterns</span>
               </li>
               <li class="highlight-item">
                 <svg class="highlight-item__icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                <span>Open to internships, junior developer roles, and freelance</span>
+                <span>Open to internships, junior developer roles, and freelance work</span>
               </li>
             </ul>
 
             <div class="about__currently-box">
               <svg class="about__currently-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
               <div>
-                <p class="about__currently-label">Currently Building</p>
-                <p class="about__currently-text">Learning Node.js by building REST APIs and backend services from scratch</p>
+                <p class="about__currently-label">Currently Exploring</p>
+                <p class="about__currently-text">AI fundamentals, Vue.js, and going deeper into Laravel — the full-stack picture is coming together.</p>
               </div>
             </div>
 

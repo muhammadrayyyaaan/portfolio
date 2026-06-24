@@ -1255,10 +1255,20 @@ ul { list-style: none; }
     transform: translateX(100%);
     visibility: hidden;
     will-change: transform;
-    transition: transform 220ms ease, visibility 220ms ease;
-    z-index: 999;
+    /* delay visibility on close so it stays visible while sliding out */
+    transition: transform 220ms ease, visibility 0s linear 220ms;
+    z-index: 1100;
   }
-  .nav__menu.open { transform: translateX(0); visibility: visible; }
+  .nav__menu.open {
+    transform: translateX(0);
+    visibility: visible;
+    /* show instantly on open, then slide in */
+    transition: transform 220ms ease, visibility 0s linear 0s;
+  }
+  .nav__toggle {
+    position: relative;
+    z-index: 1101;
+  }
   .nav__link {
     font-size: 1.4rem;
     font-weight: 600;
@@ -1286,4 +1296,161 @@ ul { list-style: none; }
   outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: var(--r-sm);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   LIGHT MODE — variable overrides
+   ═══════════════════════════════════════════════════════════ */
+
+[data-theme="light"] {
+  --bg:       #f4f4f9;
+  --surface:  #eaeaf2;
+  --card:     #ffffff;
+  --card-h:   #f7f7fc;
+  --border:   rgba(0,0,0,0.08);
+  --border-h: rgba(124,110,247,0.35);
+  --text:     #18182a;
+  --muted:    #5a5a7a;
+  --subtle:   #b8b8cc;
+  --sh-sm:    0 2px 8px rgba(0,0,0,0.10);
+  --sh-md:    0 8px 32px rgba(0,0,0,0.12);
+  --sh-lg:    0 24px 80px rgba(0,0,0,0.15);
+}
+
+/* hero bg grid in light mode */
+[data-theme="light"] .hero__grid {
+  background-image:
+    linear-gradient(rgba(124,110,247,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124,110,247,0.06) 1px, transparent 1px);
+}
+
+/* orbs slightly more saturated in light mode */
+[data-theme="light"] .orb { opacity: 0.25; }
+
+/* nav glass in light mode */
+[data-theme="light"] .nav.scrolled {
+  background: rgba(244,244,249,0.9);
+}
+
+/* mobile menu in light mode */
+@media (max-width: 639px) {
+  [data-theme="light"] .nav__menu { background: #f4f4f9; }
+}
+
+/* skill pills in light mode */
+[data-theme="light"] .skill-pill {
+  background: rgba(0,0,0,0.045);
+  border-color: rgba(0,0,0,0.09);
+  color: var(--text);
+}
+[data-theme="light"] .skill-pill:hover {
+  background: rgba(124,110,247,0.09);
+}
+[data-theme="light"] .skill-pill--learning {
+  background: rgba(245,158,11,0.09);
+}
+
+/* code card in light mode */
+[data-theme="light"] .code-card {
+  background: #1e1e2e;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   THEME TRANSITION — smooth colour switch
+   ═══════════════════════════════════════════════════════════ */
+
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  transition: background-color 260ms ease, color 260ms ease,
+              border-color 260ms ease, box-shadow 260ms ease !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   THEME TOGGLE BUTTON
+   ═══════════════════════════════════════════════════════════ */
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--r-full);
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background var(--t-base), border-color var(--t-base),
+              color var(--t-base), transform var(--t-fast);
+}
+.theme-toggle:hover {
+  background: var(--card);
+  border-color: var(--border-h);
+  color: var(--accent);
+  transform: rotate(15deg);
+}
+
+/* show moon in dark mode, sun in light mode */
+.theme-toggle__icon--sun  { display: none; }
+.theme-toggle__icon--moon { display: block; }
+
+[data-theme="light"] .theme-toggle__icon--sun  { display: block; }
+[data-theme="light"] .theme-toggle__icon--moon { display: none; }
+
+/* ═══════════════════════════════════════════════════════════
+   ABOUT — WORK CARD
+   ═══════════════════════════════════════════════════════════ */
+
+.about__work-card {
+  display: flex;
+  align-items: center;
+  gap: var(--s4);
+  padding: var(--s4) var(--s5);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--r-md);
+  margin-block: var(--s6);
+  flex-wrap: wrap;
+}
+.about__work-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--r-sm);
+  background: rgba(124,110,247,0.1);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.about__work-info { flex: 1; min-width: 0; }
+.about__work-title {
+  font-family: var(--head);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.3;
+}
+.about__work-org {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-top: 2px;
+  line-height: 1.4;
+}
+.about__work-badge {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--teal);
+  background: rgba(0,201,167,0.1);
+  border: 1px solid rgba(0,201,167,0.25);
+  padding: 2px 8px;
+  border-radius: var(--r-full);
+  white-space: nowrap;
+  flex-shrink: 0;
 }

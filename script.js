@@ -2,6 +2,27 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // ── Theme toggle ─────────────────────────────────────────────
+  const themeToggle = document.getElementById('themeToggle');
+  const html = document.documentElement;
+
+  function applyTheme(theme, animate) {
+    const noMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (animate && !noMotion) {
+      html.classList.add('theme-transitioning');
+      setTimeout(() => html.classList.remove('theme-transitioning'), 300);
+    }
+    html.setAttribute('data-theme', theme);
+    localStorage.setItem('portfolio-theme', theme);
+  }
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      applyTheme(next, true);
+    });
+  }
+
   // ── Footer year ──────────────────────────────────────────────
   const yearEl = document.getElementById('footerYear');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
