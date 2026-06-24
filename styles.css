@@ -927,120 +927,16 @@ ul { list-style: none; }
   z-index: 1;
 }
 
-/* ── BROWSER MOCKUP ── */
-.mockup { overflow: hidden; user-select: none; }
-.mockup__browser-bar {
-  display: flex;
-  align-items: center;
-  gap: var(--s3);
-  padding: var(--s2) var(--s4);
-  background: rgba(0,0,0,0.5);
-}
-.mockup__dots { display: flex; gap: 5px; }
-.mockup__dots span {
+/* ── PROJECT PREVIEW IMAGE ── */
+.project-preview-img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  object-position: top;
   display: block;
-  width: 9px; height: 9px;
-  border-radius: 50%;
-}
-.mockup__dots span:nth-child(1) { background: #ff5f57; }
-.mockup__dots span:nth-child(2) { background: #febc2e; }
-.mockup__dots span:nth-child(3) { background: #28c840; }
-.mockup__url {
-  flex: 1;
-  text-align: center;
-  font-family: var(--mono);
-  font-size: 0.65rem;
-  color: rgba(255,255,255,0.3);
-  background: rgba(255,255,255,0.05);
-  padding: 3px var(--s3);
-  border-radius: var(--r-sm);
 }
 
-/* Locus Maldives mockup screen */
-.mockup--restaurant .mockup__screen {
-  background: linear-gradient(160deg, #061614, #0b2a24);
-  padding: var(--s5);
-  min-height: 220px;
-}
-.mockup__hero-banner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-bottom: var(--s4);
-  margin-bottom: var(--s4);
-  border-bottom: 1px solid rgba(79,209,197,0.14);
-}
-.mockup__hero-label {
-  font-family: var(--head);
-  font-size: 0.88rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #4fd1c5;
-}
-.mockup__hero-sub {
-  font-size: 0.58rem;
-  color: rgba(79,209,197,0.4);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  margin-top: 2px;
-}
-.mockup__menu-list { display: flex; flex-direction: column; gap: var(--s3); }
-.mockup__menu-item {
-  display: flex;
-  align-items: center;
-  gap: var(--s3);
-  padding: 8px var(--s3);
-  background: rgba(255,255,255,0.04);
-  border-radius: var(--r-sm);
-  border: 1px solid rgba(79,209,197,0.08);
-}
-.mockup__item-img {
-  width: 34px; height: 34px;
-  border-radius: var(--r-sm);
-  flex-shrink: 0;
-}
-.mockup__item-img--1 { background: linear-gradient(135deg, #c1440e, #e76f51); }
-.mockup__item-img--2 { background: linear-gradient(135deg, #1b4332, #40916c); }
-.mockup__item-img--3 { background: linear-gradient(135deg, #7d4600, #d4791a); }
-.mockup__item-lines { flex:1; display:flex; flex-direction:column; gap:5px; }
-.mockup__item-lines div { height:4px; border-radius:3px; background:rgba(255,255,255,0.11); }
-.mockup__item-lines div:last-child { width:55%; }
-.mockup__item-price { width:28px; height:10px; border-radius:3px; background:rgba(79,209,197,0.28); flex-shrink:0; }
 
-/* APEX e-commerce mockup screen */
-.mockup--ecommerce .mockup__screen {
-  background: #080808;
-  padding: var(--s3) var(--s4) var(--s4);
-  min-height: 220px;
-}
-.mockup__topbar {
-  display: flex;
-  align-items: center;
-  gap: var(--s3);
-  margin-bottom: var(--s4);
-  padding-bottom: var(--s3);
-  border-bottom: 1px solid rgba(198,246,60,0.12);
-  color: rgba(198,246,60,0.5);
-}
-.mockup__topbar-logo { width:38px; height:9px; border-radius:3px; background:rgba(198,246,60,0.35); }
-.mockup__topbar-links { display:flex; gap:var(--s2); flex:1; }
-.mockup__topbar-links div { width:22px; height:5px; border-radius:3px; background:rgba(255,255,255,0.08); }
-.mockup__product-grid { display:grid; grid-template-columns:1fr 1fr; gap:var(--s3); }
-.mockup__product {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(198,246,60,0.08);
-  border-radius: var(--r-sm);
-  padding: var(--s2);
-}
-.mockup__product-img { width:100%; height:44px; border-radius:4px; margin-bottom:var(--s2); }
-.mockup__product-img--1 { background:linear-gradient(135deg,#0f0f0f,#1c1c1c); }
-.mockup__product-img--2 { background:linear-gradient(135deg,#0d1a00,#1c3300); }
-.mockup__product-img--3 { background:linear-gradient(135deg,#111111,#242424); }
-.mockup__product-img--4 { background:linear-gradient(135deg,#0a1500,#162b00); }
-.mockup__product-name  { height:4px; border-radius:3px; background:rgba(255,255,255,0.12); margin-bottom:var(--s1); }
-.mockup__product-price { height:4px; width:48%; border-radius:3px; background:rgba(198,246,60,0.3); margin-bottom:var(--s2); }
-.mockup__product-btn   { height:13px; border-radius:3px; background:rgba(198,246,60,0.65); }
 
 /* Project badge */
 .project-badge {
@@ -1327,13 +1223,9 @@ ul { list-style: none; }
   .project-card--featured .project-card__preview {
     border-radius: var(--r-xl) 0 0 var(--r-xl);
   }
-  .project-card--featured .mockup {
+  .project-card--featured .project-preview-img {
     height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  .project-card--featured .mockup__screen {
-    flex: 1;
+    min-height: 320px;
   }
   .project-card--featured .project-card__body {
     padding: var(--s8);
